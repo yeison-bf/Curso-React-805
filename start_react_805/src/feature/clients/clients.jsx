@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 
 const Clients = () => {
+
+        const [dataStorage, setDataStorage] = useState(JSON.parse(localStorage.getItem('access805')))
+    
+
     return (
         <>
             <div className="container p-4">
+                <small>Bienvenido: </small>
+                <h1>{dataStorage.name}</h1>
+                <br /><br />
                 <div className="row">
                     <div className="col-3">
                         <h2>Formulario de registro</h2>
