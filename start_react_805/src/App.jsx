@@ -1,9 +1,13 @@
 import './App.css'
-import { RoutesModelo } from './routers/routes'
+import { Login } from './feature/auth/pages/login'
+import { RoutesModule } from './routes/routes'
 
 function App() {
   return (
-   <RoutesModelo/>
+    <>
+    <RoutesModule/>
+    </>
+
   )
 }
 

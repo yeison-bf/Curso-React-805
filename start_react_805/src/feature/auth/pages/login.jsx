@@ -1,63 +1,69 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Navbar } from "../components/navbar";
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+export const Login = () => {
 
+    // Constante del Hook de Navigate()
     const navigate = useNavigate()
 
-    const [username, SetUserName] = useState('')
-    const [password, SetPassword] = useState('')
-    const [validateCredential, setValidateCredential] = useState(false)
-    const [dataStorage, setDataStorage] = useState(JSON.parse(localStorage.getItem('access805')))
 
+    // Valriable para capturar los datos del localstorage
+    const DataLocalStorage = JSON.parse(localStorage.getItem('access805'));
 
-    const handdleSubmit = (e) => {
+    // Constantes para almacenar los datos del formulario 
+    const [username, setUserName] = useState("")
+    const [password, setPassword] = useState("");
+
+    // Función para validar los datos y acceder al panel
+    const handdleSubmit = (e) =>{
         e.preventDefault()
-        console.log(dataStorage)
-        if (username == '' || password == '') {
-            setValidateCredential(true)
+        console.log(DataLocalStorage)
+        if(username=='' || password==''){
+            alert("Los datos de acceso son obligatorios");
             return
         }
-        console.log({ username, password })
 
-        if (username == dataStorage.username && password == dataStorage.password) {
-            navigate('/clientes')
-        } else {
-            SetPassword('')
-            SetUserName('')
-            console.log("Credenciales incorrectas")
+        if(username == DataLocalStorage?.username && password == DataLocalStorage?.password){
+            alert("Credenciales correctas")
+        }else{
+            alert("Lo sentimos! Datos incorrectos")
+            setUserName('')
+            setPassword('')
         }
+
+    }
+
+    // Funcion para navegar al formulario o componente del registro
+    const regiterForm = () =>{
+        navigate('/register')
     }
 
 
     return (
         <>
-            <Navbar />
-            <div className="container pt-5 w-100 d-flex justify-content-center aling-items-center">
-                <div className="card">
-                    <form onSubmit={handdleSubmit} >
-                        <img src="https://img.freepik.com/vector-premium/vector-libre-hermoso-elemento-diseno-colibri-volador-pancartas-carteles-folletos-folletos_1009653-1.jpg?semt=ais_hybrid&w=740" className="img-fluid w-50" alt="" />
-                        <div className="mb-3">
-                            <label className="form-label">Email</label>
-                            <input value={username} onChange={(e) => SetUserName(e.target.value)} type="text" className="form-control" />
-                            {validateCredential ? (<small className="text-danger">Este campo requerido</small>) : ''}
+            <div className="container-fluid   justify-content-center aling-items-center">
+                <form onSubmit={ handdleSubmit }>
+                    <div className="card  p-4">
+                        <img src="" className='img-fluid' alt="" />
+                        <div className='mt-5'>
+                            <label htmlFor="" className='label-control col-12'>Usuario:</label>
+                            <input onChange={ (e)=>setUserName(e.target.value) } type="text"  className='input-control' value={username} />
                         </div>
-                        <div className="mb-3">
-                            <label className="form-label">Password</label>
-                            <input value={password} type="text" onChange={(e) => SetPassword(e.target.value)} className="form-control" />
-                            {validateCredential ? (<small className="text-danger">Este campo requerido</small>) : ''}
+
+                        <div className='mt-5'>
+                            <label htmlFor="" className='label-control col-12'>Contraseña:</label>
+                            <input onChange={ (e)=>setPassword(e.target.value) } type="password" className='input-control' value={password} />
                         </div>
-                        <div className="mb-3">
-                            <input type="submit" value="Acceder" />
+
+                        <div className='mt-5'>
+                            <input type="submit" className='btn btn-primary col-12' />
                         </div>
-                    </form>
+                    </div>
+                </form>
+                <div>
+                    <p onClick={ regiterForm } className='text-primary'>Registrate aqui</p>
                 </div>
             </div>
         </>
     )
-
 }
-
-export default Login;
-

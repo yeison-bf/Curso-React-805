@@ -1,0 +1,39 @@
+.contenedorHome{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(237, 237, 237);
+    display: flex;
+}
+
+.sidebar{
+    width: 20%;
+    background-color: rgb(1, 19, 134);
+    height: 100vh;
+}
+
+.content{
+    width: 80%;
+    height: 100vh;
+    padding: 5em;
+}
+
+
+
+.sidebar ul{
+    padding: 1em;
+}
+
+.sidebar ul li{
+    margin-top: 1em;
+    list-style: none;
+}
+
+.sidebar ul li .item{
+    font-family: 2em;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
