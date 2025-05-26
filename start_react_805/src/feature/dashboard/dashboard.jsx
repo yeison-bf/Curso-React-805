@@ -1,7 +1,13 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 
 export const Dashboard = () => {
+
+    const navigate = useNavigate()
+    const handdleClose = () =>{
+        navigate('/')
+    }
+
     return (
         <>
             <div className="contenedorHome">
@@ -14,6 +20,8 @@ export const Dashboard = () => {
                             <Link to='/home/sales' className='item'>Ventas</Link>
                         </li>
                     </ul>
+
+                    <p onClick={handdleClose} className='opcionSalir'>Salir</p>
                 </div>
                 <div className='content'>
                     <Outlet/>

@@ -17,10 +17,7 @@ export const RoutesModule = () => {
                 <Route path='/home' element={<Dashboard/>}>
                     <Route path='clients' element={<Clients />} />
                     <Route path='sales' element={<Sales />} />
-
-
                 </Route>
-             
             </Routes>
         </>
     )

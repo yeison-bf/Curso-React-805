@@ -25,6 +25,7 @@ export const Login = () => {
 
         if(username == DataLocalStorage?.username && password == DataLocalStorage?.password){
             alert("Credenciales correctas")
+            navigate('/home/clients')
         }else{
             alert("Lo sentimos! Datos incorrectos")
             setUserName('')
