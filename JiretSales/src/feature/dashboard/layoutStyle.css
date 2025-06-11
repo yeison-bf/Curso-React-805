@@ -1,0 +1,17 @@
+.containerLogin{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+
+.formulario{
+    width: 30%;
+    height: 100vh;
+}
+
+
+.imagenformulario{
+    width: 70%;
+    height: 100vh;
+}
