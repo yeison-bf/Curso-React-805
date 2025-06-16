@@ -10,6 +10,7 @@ import { Layout } from "../feature/dashboard/layout";
 import { Users } from "../feature/dashboard/pages/users/users";
 import { Company } from "../feature/dashboard/pages/companies/company";
 import { ServicesHome } from "../feature/dashboard/pages/services/services";
+import { Home } from "../feature/dashboard/pages/home/home";
 
 const RoutesModule = () => {
 
@@ -25,11 +26,11 @@ const RoutesModule = () => {
                 <Route path="/login" element={<Login />} />
 
                 {/* Rutas del dashboard */}
-                <Route path="/app" element={<Layout/>}>
-                <Route path="users" element={<Users />} />
-                <Route path="companies" element={<Company />} />
-                <Route path="services" element={<ServicesHome />} />
-
+                <Route path="/app" element={<Layout />}>
+                    <Route path="home" element={<Home />} />
+                    <Route path="users" element={<Users />} />
+                    <Route path="companies" element={<Company />} />
+                    <Route path="services" element={<ServicesHome />} />
                 </Route>
 
             </Routes>

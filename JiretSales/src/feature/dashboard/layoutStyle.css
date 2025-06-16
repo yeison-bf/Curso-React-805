@@ -1,17 +1,48 @@
-.containerLogin{
+.contenedor{
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
+    /* background-color: red; */
     display: flex;
 }
 
-
-.formulario{
-    width: 30%;
+.sidebar{
+    width: 20%;
     height: 100vh;
+    background-color: rgba(0, 0, 174, 0.832);
+}
+
+.contentModules{
+    width: 80%;
+    height: 100vh;
+    background-color: green;
 }
 
 
-.imagenformulario{
-    width: 70%;
+.seccion1{
+    width: 100%;
+    background-color: rgb(194, 194, 194);
+    height: 5em;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+
+.seccion1 .infoUser {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seccion1 .infoUser img{
+    width: 5%;
+    margin-right: 5px;
+}
+
+.seccion2{
+    width: 100%;
     height: 100vh;
+    background-color: rgb(237, 237, 237);
+    padding: 1em;
 }

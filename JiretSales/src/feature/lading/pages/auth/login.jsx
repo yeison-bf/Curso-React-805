@@ -9,12 +9,20 @@ export const Login = () => {
     const handleHome = () => {
         navitage('/')
     }
+
+
+    const handleAcces = ()=>{
+        console.log("Si estoy llegando a esta función")
+        navitage('/app/home')
+    }
+
+
     return (
         <div>
             <div className="containerLogin">
-                <button onClick={handleHome} className='devolver'>Inicio</button>
+                <button onClick={handleHome} className='devolver text-white'>Inicio</button>
                 <div className="formulario d-flex justify-content-center  align-items-center">
-                    <form action="col-8">
+                    <form  onSubmit={handleAcces}>
                         <div className="mb-3">
                             <label for="exampleFormControlInput1" className="form-label">Usuario</label>
                             <input type="text" className="form-control" />
@@ -24,7 +32,7 @@ export const Login = () => {
                             <input type="email" className="form-control" />
                         </div>
                         <div className="mb-3">
-                            <input type="input" className=" btn btn-primary col-12 mt-5" value="Acceder"  />
+                            <input type="submit" className=" btn btn-primary col-12 mt-5" value="Acceder"  />
                         </div>
                     </form>
                 </div>
