@@ -1,0 +1,141 @@
+
+/* ESTILOS DEL LOGIN */
+
+.containerLogin{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.devolver{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: green;
+    position: absolute;
+    top:1em;
+    left: 1em;
+}
+.formulario{
+    width: 30%;
+    height: 100vh;
+}
+
+
+.imagenformulario{
+    width: 70%;
+    height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1546238232-20216dec9f72?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FjaG9ycm9zfGVufDB8fDB8fHww');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+
+
+
+/* ESTILOS DEL LAYOUT */
+.contenedor{
+    width: 100%;
+    /* height: 100vh; */
+    /* background-color: red; */
+    display: flex;
+}
+
+.sidebar{
+    width: 20%;
+    height: 100vh;
+    background-color: rgba(0, 0, 174, 0.832);
+    padding: 2em;
+}
+
+.contentModules{
+    width: 80%;
+    height: 100vh;
+    background-color: green;
+}
+
+
+.seccion1{
+    width: 100%;
+    background-color: rgb(194, 194, 194);
+    height: 5em;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+
+.seccion1 .infoUser {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seccion1 .infoUser img{
+    width: 5%;
+    margin-right: 5px;
+}
+
+.seccion2{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(237, 237, 237);
+    padding: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+/* ESTILOS DEL SIDEBAR */
+
+.sidebar .logo img{
+    width: 80%;
+}
+
+.sidebar .menu ul li{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    /* margin-top:2em ; */
+    color: white;
+    font-size: 18px;
+    padding: 1em;
+}
+
+.sidebar .menu ul li:hover{
+    background-color: rgb(190, 190, 190);
+    transition: all .1s;
+    /* padding: 1em; */
+    border-radius: 8px;
+}
+
+.sidebar .menu ul li .link{
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,19 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Navbar } from '../../components/navbar'
-import './loginStyle.css'
 import { useNavigate } from 'react-router-dom'
+import { AuhtLogin } from './services/login.services'
 
 export const Login = () => {
     const navitage = useNavigate()
+
+    const [userName, setUserName] = useState("")
+    const [password, setPassword] = useState("")
 
     const handleHome = () => {
         navitage('/')
     }
 
 
-    const handleAcces = ()=>{
-        console.log("Si estoy llegando a esta función")
-        navitage('/app/home')
+    const handleAcces = async (e)=>{
+        e.preventDefault()
+        const response =await  AuhtLogin(userName, password)
+        console.log(response)
+
+        if(response.success){
+            navitage('/app/home')
+        }else{
+            alert("Credenciales incorrectas")
+        }
     }
 
 
@@ -24,12 +34,12 @@ export const Login = () => {
                 <div className="formulario d-flex justify-content-center  align-items-center">
                     <form  onSubmit={handleAcces}>
                         <div className="mb-3">
-                            <label for="exampleFormControlInput1" className="form-label">Usuario</label>
-                            <input type="text" className="form-control" />
+                            <label htmlFor="exampleFormControlInput1" className="form-label">Usuario</label>
+                            <input onChange={(e)=>setUserName(e.target.value)} type="text" className="form-control" />
                         </div>
                        <div className="mb-3">
-                            <label for="exampleFormControlInput1" className="form-label">Password</label>
-                            <input type="email" className="form-control" />
+                            <label htmlFor="exampleFormControlInput1" className="form-label">Password</label>
+                            <input onChange={(e)=>setPassword(e.target.value)}  type="password" className="form-control" />
                         </div>
                         <div className="mb-3">
                             <input type="submit" className=" btn btn-primary col-12 mt-5" value="Acceder"  />

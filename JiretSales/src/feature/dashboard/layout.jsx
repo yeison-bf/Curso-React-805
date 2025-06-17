@@ -1,22 +1,16 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import './layoutStyle.css'
+import { Navbar } from './components/navbar'
+import { Sidebar } from './components/sidebar'
 
 
 export const Layout = () => {
     return (
         <>
             <div className="contenedor">
-                <div className="sidebar">
-
-                </div>
+                <Sidebar/>
                 <div className="contentModules">
-                    <nav className="seccion1">
-                        <div className='infoUser'>
-                            <img src="https://normalsuperiormontesdemaria.edu.co/uploadImagesEdunormas/us-1.png" alt="" />
-                            <h3>Jiret Josefino Del Cristo Osorio</h3>
-                        </div>
-                    </nav>
+                   <Navbar/>
                     <div className="seccion2">
                         <div className="card p-4">
                             <Outlet/>
