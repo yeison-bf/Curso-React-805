@@ -1,6 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { UserServices } from './services/user.service'
 
 export const Users = () => {
+
+  const [listUser, setListUser] = useState([])
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+
+  const getData = async () => {
+    const data = await UserServices.getAllDataUser();
+    setListUser(data)
+  }
+
+
   return (
     <>
       <div className="row">
@@ -12,30 +27,23 @@ export const Users = () => {
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Empresa</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>John</td>
-                <td>Doe</td>
-                <td>@social</td>
-              </tr>
+              
+              {listUser.map((element, index) => (
+                <tr key={index}>
+                  <th scope="row">{index+1}</th>
+                  <td>{element.fullName}</td>
+                  <td>{element.email}</td>
+                  <td>{element.company.name}</td>
+                </tr>
+              ))}
+
+
             </tbody>
           </table>
         </div>
