@@ -11,6 +11,7 @@ import { Users } from "../feature/dashboard/pages/users/users";
 import { Company } from "../feature/dashboard/pages/companies/company";
 import { ServicesHome } from "../feature/dashboard/pages/services/services";
 import { Home } from "../feature/dashboard/pages/home/home";
+import { FormUsers } from "../feature/dashboard/pages/users/components/FormUsers";
 
 const RoutesModule = () => {
 
@@ -29,6 +30,7 @@ const RoutesModule = () => {
                 <Route path="/app" element={<Layout />}>
                     <Route path="home" element={<Home />} />
                     <Route path="users" element={<Users />} />
+                    <Route path="users/register" element={<FormUsers />} />
                     <Route path="companies" element={<Company />} />
                     <Route path="services" element={<ServicesHome />} />
                 </Route>

@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { IoMdHome } from "react-icons/io";
+
 
 export const Sidebar = () => {
     return (
@@ -9,7 +11,7 @@ export const Sidebar = () => {
             </div>
             <div className="menu">
                 <ul>
-                    <li><Link to="/app/home" className='link'>Inicio</Link></li>
+                    <li><Link to="/app/home" className='link'><IoMdHome /> Inicio</Link></li>
                     <li><Link to="/app/users" className='link'>Usuarios</Link></li>
                     <li><Link to="/app/services" className='link'>Servicios</Link></li>
                     <li><Link to="/app/companies" className='link'>Compañias</Link></li>
