@@ -3,6 +3,7 @@ import { IoMdReturnLeft } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import { CompanyServices } from '../../companies/services/company.services';
 import { RolesServices } from '../../roles/servicio/roles.services';
+import { UserServices } from '../services/user.service';
 
 
 export function FormUsers() {
@@ -48,22 +49,27 @@ export function FormUsers() {
     }
 
 
-    // 
-
+    // Función para capturar los datos del formularios
     const changeData = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
-
-        setFormData(formData => ({ 
+        const { name, value } = e.target;
+        setFormData(formData => ({
             ...formData,
             [name]: value
         }))
     }
 
-
-    const handleSave = (e)=>{
+    // Función para guardar los datos en la base de datos 
+    const handleSave = async (e) => {
         e.preventDefault()
-        console.log(formData)
+        // console.log(formData)
+        const response = await UserServices.saveDataUser(formData)
+        console.log(response)
+        if (response.user) {
+            alert("Registro exitoso")
+            navigate('/app/users')
+        }else{
+            alert("Lo sentimos! se ha generado un error en el proceso de guardado")
+        }
     }
     return (
         <>
@@ -86,7 +92,7 @@ export function FormUsers() {
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Rol</label>
-                    <select  onChange={changeData} name='roleId' class="form-select" aria-label="Default select example">
+                    <select onChange={changeData} name='roleId' class="form-select" aria-label="Default select example">
                         <option selected>Seleccione</option>
                         {listRoles.map((element, index) => (
                             <option key={element.id} value={element.id}>{element.name}</option>
@@ -103,7 +109,7 @@ export function FormUsers() {
                     </select>
                 </div>
                 <div class="mb-3 col-12 d-flex justify-content-end ">
-                    <input  type="submit" value='Guardar' class="btn btn-primary" />
+                    <input type="submit" value='Guardar' class="btn btn-primary" />
                 </div>
             </form>
         </>
